@@ -8,6 +8,9 @@ return {
     },
     opts = {
         default_component_configs = {
+            filesystem = {
+                use_libuv_file_watcher = true,
+            },
             git_status = {
                 symbols = {
                     added = "✚",
