@@ -17,7 +17,7 @@ vim.opt.listchars = {
     trail = "·",
     nbsp = "␣",
     extends = "⟩",
-    precedes = "⟨"
+    precedes = "⟨",
 }
 
 vim.o.tabstop = 4
@@ -31,9 +31,20 @@ vim.o.inccommand = "split"
 
 vim.o.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
-vim.keymap.set('v', '<D-c>', '"+y', { noremap = true, silent = true })
-vim.keymap.set('n', '<D-c>', '"+yy', { noremap = true, silent = true })
-vim.keymap.set('n', '<D-v>', '"+p', { noremap = true, silent = true })
-vim.keymap.set('i', '<D-v>', '<C-r>+', { noremap = true, silent = true })
-vim.keymap.set({'n', 'i'}, '<D-z>', '<Esc>u')
-vim.keymap.set({'n', 'i'}, '<D-S-z>', '<Esc><C-r>')
+vim.keymap.set("v", "<D-c>", '"+y', { noremap = true, silent = true })
+vim.keymap.set("n", "<D-c>", '"+yy', { noremap = true, silent = true })
+vim.keymap.set("n", "<D-v>", '"+p', { noremap = true, silent = true })
+vim.keymap.set("i", "<D-v>", "<C-r>+", { noremap = true, silent = true })
+vim.keymap.set({ "n", "i" }, "<D-z>", "<Esc>u")
+vim.keymap.set({ "n", "i" }, "<D-S-z>", "<Esc><C-r>")
+
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+        },
+    },
+})
