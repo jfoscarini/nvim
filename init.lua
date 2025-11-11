@@ -1,3 +1,7 @@
+if vim.g.vscode then
+    return
+end
+
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
@@ -39,7 +43,11 @@ require("lazy").setup({
 
             if mason_registry.refresh then
                 mason_registry.refresh(function()
+                    require("lsp.bash")
                     require("lsp.clangd")
+                    require("lsp.pyright")
+                    require("lsp.rust-analyzer")
+                    require("lsp.ts")
                 end)
             end
         end,

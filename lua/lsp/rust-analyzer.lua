@@ -4,22 +4,15 @@ if ok then
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 end
 
-vim.lsp.config["clangd"] = {
-    cmd = {
-        "clangd",
-        "--background-index",
-        "--clang-tidy",
-        "--clang-tidy-checks=performance-*,bugprone-*,modernize-*,readability-*,clang-analyzer-*",
-        "--completion-style=detailed",
-        "--header-insertion=never",
-        "--suggest-missing-includes",
-        "--cross-file-rename",
-    },
-    filetypes = { "c", "cpp", "objc", "objcpp" },
-    root_markers = { "compile_commands.json", ".git" },
+vim.lsp.config["rust_analyzer"] = {
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+    root_dir = function(fname)
+        return vim.fs.dirname(vim.fs.find({ "Cargo.toml", ".git" }, { upward = true, path = fname })[1])
+    end,
     capabilities = capabilities,
     on_attach = function(client, bufnr)
-        if client:supports_method("textDocument/inlayHint") then
+        if client.supports_method("textDocument/inlayHint") then
             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end
 
@@ -33,8 +26,8 @@ vim.lsp.config["clangd"] = {
 }
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp", "objc", "objcpp" },
+    pattern = "rust",
     callback = function()
-        vim.lsp.start(vim.lsp.config["clangd"])
+        vim.lsp.start(vim.lsp.config["rust_analyzer"])
     end,
 })

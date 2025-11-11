@@ -4,19 +4,25 @@ if ok then
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 end
 
-vim.lsp.config["clangd"] = {
-    cmd = {
-        "clangd",
-        "--background-index",
-        "--clang-tidy",
-        "--clang-tidy-checks=performance-*,bugprone-*,modernize-*,readability-*,clang-analyzer-*",
-        "--completion-style=detailed",
-        "--header-insertion=never",
-        "--suggest-missing-includes",
-        "--cross-file-rename",
+vim.lsp.config["ts_ls"] = {
+    cmd = { "typescript-language-server", "--stdio" },
+    filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
     },
-    filetypes = { "c", "cpp", "objc", "objcpp" },
-    root_markers = { "compile_commands.json", ".git" },
+    root_markers = {
+        "package.json",
+        "tsconfig.json",
+        "tsconfig.app.json",
+        "jsconfig.json",
+        ".git",
+    },
+    init_options = {
+        hostInfo = "neovim",
+    },
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         if client:supports_method("textDocument/inlayHint") then
@@ -33,8 +39,8 @@ vim.lsp.config["clangd"] = {
 }
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp", "objc", "objcpp" },
+    pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
     callback = function()
-        vim.lsp.start(vim.lsp.config["clangd"])
+        vim.lsp.start(vim.lsp.config["ts_ls"])
     end,
 })
