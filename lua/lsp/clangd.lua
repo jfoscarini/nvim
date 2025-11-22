@@ -16,7 +16,7 @@ vim.lsp.config["clangd"] = {
         "--cross-file-rename",
     },
     filetypes = { "c", "cpp", "objc", "objcpp" },
-    root_markers = { "compile_commands.json", ".git" },
+    root_markers = { "CMakeLists.txt", "compile_commands.json", ".git" },
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         if client:supports_method("textDocument/inlayHint") then
