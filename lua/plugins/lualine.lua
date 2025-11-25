@@ -12,7 +12,7 @@ return {
 				{ "mode", separator = { left = "", right = "" }, right_padding = 2 },
 			},
 			lualine_b = { "branch", "diff", "diagnostics" },
-			lualine_c = { "%=", "buffers" },
+			lualine_c = { "%=", "filename" },
 			lualine_x = {},
 			lualine_y = { "filetype", "fileformat", "encoding" },
 			lualine_z = {
