@@ -15,4 +15,12 @@ return {
             -- vim.cmd.colorscheme("studio98")
         end,
     },
+    {
+		"ribru17/bamboo.nvim",
+		priority = 1000,
+		config = function()
+			-- require("bamboo").setup({})
+			-- require("bamboo").load()
+		end,
+	},
 }
