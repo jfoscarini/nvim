@@ -6,6 +6,9 @@ return {
         "MunifTanjim/nui.nvim",
         "nvim-tree/nvim-web-devicons",
     },
+    lazy = false,
+    ---@module 'neo-tree'
+    ---@type neotree.Config
     opts = {
         default_component_configs = {
             filesystem = {
@@ -43,5 +46,4 @@ return {
             end,
         })
     end,
-    lazy = false,
 }
