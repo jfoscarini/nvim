@@ -6,6 +6,9 @@ return {
 			theme = "auto",
 			component_separators = "",
 			section_separators = { left = "", right = "" },
+			disabled_filetypes = {
+				statusline = { "neo-tree", "help", "alpha" },
+			},
 		},
 		sections = {
 			lualine_a = {
