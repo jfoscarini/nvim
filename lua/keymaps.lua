@@ -27,11 +27,11 @@ vim.keymap.set({ "n", "i" }, "<D-S-z>", "<Esc><C-r>", { desc = "Redo" })
 
 vim.keymap.set("n", "<D-t>", "<cmd>enew<CR>", { desc = "New Buffer" })
 vim.keymap.set("n", "<D-w>", function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    if vim.bo[bufnr].buftype == "" then
-        vim.cmd("bnext")
-        vim.cmd("bdelete " .. bufnr)
-    else
-        vim.cmd("close")
-    end
+	local bufnr = vim.api.nvim_get_current_buf()
+	if vim.bo[bufnr].buftype == "" then
+		vim.cmd("bnext")
+		vim.cmd("bdelete " .. bufnr)
+	else
+		vim.cmd("close")
+	end
 end, { desc = "Close buffer" })

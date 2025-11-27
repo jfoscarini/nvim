@@ -13,11 +13,11 @@ vim.o.cursorline = true
 
 vim.o.list = true
 vim.opt.listchars = {
-    tab = "┊ ",
-    trail = "·",
-    nbsp = "␣",
-    extends = "⟩",
-    precedes = "⟨",
+	tab = "┊ ",
+	trail = "·",
+	nbsp = "␣",
+	extends = "⟩",
+	precedes = "⟨",
 }
 
 vim.o.tabstop = 4
@@ -33,12 +33,12 @@ vim.o.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 
 vim.diagnostic.config({
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN] = "",
-            [vim.diagnostic.severity.INFO] = "",
-            [vim.diagnostic.severity.HINT] = "",
-        },
-    },
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+	},
 })
