@@ -1,0 +1,13 @@
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+vim.keymap.set("n", "<D-Left>", "0", { desc = "Start of line" })
+vim.keymap.set("i", "<D-Left>", "<C-o>0", { desc = "Start of line" })
+vim.keymap.set("n", "<D-Right>", "$", { desc = "End of line" })
+vim.keymap.set("i", "<D-Right>", "<C-o>$", { desc = "End of line" })
+vim.keymap.set("n", "<D-Up>", "gg", { desc = "First line" })
+vim.keymap.set("i", "<D-Up>", "<C-o>gg", { desc = "First line" })
+vim.keymap.set("n", "<D-Down>", "G", { desc = "Last line" })
+vim.keymap.set("i", "<D-Down>", "<C-o>G", { desc = "Last line" })

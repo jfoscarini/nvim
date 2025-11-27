@@ -9,7 +9,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("options")
-require("keymaps")
+require("keymaps.general")
+require("keymaps.movement")
+require("keymaps.copy-paste")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
