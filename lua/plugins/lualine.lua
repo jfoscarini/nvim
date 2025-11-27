@@ -7,7 +7,14 @@ return {
 			component_separators = "",
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
-				statusline = { "neo-tree", "help", "alpha" },
+				statusline = {
+					"alpha",
+					"diff",
+					"help",
+					"neo-tree",
+					"trouble",
+					"undotree",
+				},
 			},
 		},
 		sections = {
